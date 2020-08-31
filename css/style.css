@@ -1,0 +1,40 @@
+/*
+  Description:
+    Cascading Style Sheets (CSS) file:
+    Formatting of the photoboard layout.
+
+	Version:
+		0.1a
+
+  Creation date:
+		31AUG2020
+
+  Contributors
+		MaybeNotABob
+
+*/
+
+
+
+@media screen and (min-width: 1601px) {
+  .container{
+    height: auto;
+    display: grid;
+    grid-column-gap: 0%;
+    grid-template-areas:  "header_block"
+                          "left_block center_block right_block"
+                          "footer_block";
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .container{
+    height: auto;
+    display: grid;
+    grid-column-gap: 0%;
+    grid-template-areas:  "header_block"
+                          "left_block center_block right_block"
+                          "footer_block";
+  }
+}
+
