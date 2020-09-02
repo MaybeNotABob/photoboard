@@ -1,15 +1,27 @@
 <!--
   Description:
     Photoboard HTML source file:
-    Draw and display an organisational hierarchy tree with image, 
-    role/title and employee name.
+    Draw and display an organisational hierarchy tree, with images, 
+    roles/titles and employee names.
 
-    +-------+
-    |       |
-    |       |
-    +-------+
-    Team leader
-    John Doe
+              +---------+              
+              |         |              
+              |         |              
+              |         |              
+              |         |              
+              +---------+              
+                 BOSS                  
+               JANE DOE                
+                                                           
++---------+   +---------+   +---------+
+|         |   |         |   |         |
+|         |   |         |   |         |
+|         |   |         |   |         |
+|         |   |         |   |         |
++---------+   +---------+   +---------+
+   I.T.          CARGO         SALES   
+ JOHN DOO       JILL GROW     JACK WOE 
+                                       
 
 	Version:
 		0.1a
@@ -25,16 +37,48 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>Photoboard</title>
   <meta name="description" content="Organisational Photoboard">
   <meta name="author" content="">
   <script src="/js/index.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  
+  <div class="container">
+    <div class=header_block">
+    </div><!--header_block-->
+    
+    <div class="left_pad">
+    </div><!--left_pad-->
+
+    <div class="left_block">
+      <p>
+        LEFT BLOCK
+      </p>  
+    </div><!--left_block-->
+
+    <div class="center_block">
+      <p>
+        CENTER BLOCK
+      </p>  
+    </div> <!--center_block-->
+
+    <div class="right_block">
+      <p>
+        RIGHT BLOCK
+      </p>  
+    </div><!--right_block-->
+
+    <div class="right_pad">
+    </div><!--right_pad-->
+
+    <div class="footer_block">
+    </div> <!--footer_block-->
+
+  <div> <!--container-->
 </body>
 
 
