@@ -21,7 +21,8 @@ async function fetchCSVData() {
   const data = await response.text();
   // trim any leading white space, 
   //then split the response into seperate lines (line break)  
-  const rows = data.trimEnd().split('\n');
+  // remove row titles from data.
+  const rows = data.trimEnd().split('\n').slice(1);
 
   /*rows.forEach ( row => {
     const columns = row.split(',');
