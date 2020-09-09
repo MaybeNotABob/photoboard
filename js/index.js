@@ -45,7 +45,6 @@ async function fetchCSVData() {
       addPersonElement(defaultImg, columns[0], "center_block");
     }
     else {
-      console.log(columns[1].length); 
       addPersonElement(columns[1], columns[0], "center_block");
     }
   }
