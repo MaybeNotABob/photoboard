@@ -74,6 +74,10 @@ body {
   background-color: #222244;
 }
 
+.person_block {
+  padding: 10px;
+}
+
 @media screen and (min-width: 1601px) {
   .container{
     grid-template-areas:  "header_block   header_block    header_block    header_block    header_block"

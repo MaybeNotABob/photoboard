@@ -66,28 +66,24 @@ async function fetchCSVData() {
   }
 } 
 
-
-/*TODO:
-  add rank/positon to the parameters
-  create a rank/position div and assign all akin nodes to this div
-*/
 function addPersonElement(imgpath, personPos, personName)
 {
   /*
-  <div id="person_block" class="person_block"> 
-    <img src="/img/n.....">
-      <div id="person_block_caption" class="person_block_caption"> 
-        title of person
-      </div> 
-  </div> 
+    <div id="position" class="position">
+      <div id="person_block" class="person_block">
+      <img src="imagePath>
+        <div id="person_block_caption" class="person_block_caption">
+        Person's Name
+        </div>
+      </div>
+    </div>
   */
-  //var elem = document.getElementById("center_block");
 
   var parentElem = document.getElementById(personPos);
   if (null == parentElem) {
     parentElem = document.createElement("div");
-    parentElem.id = personPos;
-    parentElem.className  = personPos;
+    parentElem.id = personPos.replace(/\s+/g, "");;
+    parentElem.className  = personPos.replace(/\s+/g, "");
   }
 
   const aDiv = document.createElement("div");
@@ -105,6 +101,5 @@ function addPersonElement(imgpath, personPos, personName)
   bDiv.appendChild(titleofPerson);
   aDiv.appendChild(bDiv);
   parentElem.appendChild(aDiv);
-
-  document.getElementById("center_block").insertAdjacentElement("afterbegin", parentElem);
+  document.getElementById("center_block").insertBefore(parentElem, parentElem.nextSibling)
 }
