@@ -66,6 +66,8 @@ async function fetchCSVData() {
   }
 } 
 
+
+//refactoring needed / tidy up variable names
 function addPersonElement(imgpath, personPos, personName)
 {
   /*
