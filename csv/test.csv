@@ -1,5 +1,6 @@
 Name,Image URL
-Captain Kirk,imgs/emotion_hitler.png
+default,imgs/emotion_unknown.png
+Captain Kirk,imgs/emotion_amazing.png
 Captiain Spock,imgs/emotion_horror.png
 James Dean,imgs/emotion_hypnotized.png
 Jolly Roger,imgs/emotion_injured.png

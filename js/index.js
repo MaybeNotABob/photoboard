@@ -30,17 +30,24 @@ async function fetchCSVData() {
   // trim any leading white space, 
   //then split the response into seperate lines (line break)  
   // remove row titles from data.
-  const rows = data.trimEnd().split('\n').slice(1);
+  const rows = data.trimEnd().split('\n').slice(2);
 
   /*rows.forEach ( row => {
     const columns = row.split(',');
     console.log(row);
   }); */
+  const defaultImg = data.trimEnd().split('\n')[1].split(',')[1];
 
-  for (let i = 0; i < rows.length; i++)
+  for (var i = 0; i < rows.length; i++)
   {
-    const columns = rows[i].split(',');
-    addPersonElement(columns[1], columns[0], "center_block");
+    const columns = rows[i].split(',');   
+    if (columns[1].length == 1) {
+      addPersonElement(defaultImg, columns[0], "center_block");
+    }
+    else {
+      console.log(columns[1].length); 
+      addPersonElement(columns[1], columns[0], "center_block");
+    }
   }
 } 
 
