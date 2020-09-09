@@ -13,3 +13,15 @@
 		MaybeNotABob
 
 */
+
+async function fetchCSVData() {
+  const response = await fetch('csv/test.csv');
+  const data = await response.text();
+
+  const table = data.split('\n');
+  for (let i = 0; i < table.length; i++){
+    const columns = data.split(',');
+    console.log(columns);
+  }
+  
+} 
