@@ -28,28 +28,45 @@ async function fetchCSVData() {
   // save the response of the request to a variable
   const data = await response.text();
   // trim any leading white space, 
-  //then split the response into seperate lines (line break)  
-  // remove row titles from data.
-  const rows = data.trimEnd().split('\n').slice(2);
+  // then split the response into seperate lines (line break)  
+  // remove row headers from data.
+  // ---- CSV file format ----
+  // #1 row headers   :: Position, Name, Image Path (URL)
+  // #2 default image :: default, image, http://default-image.jpg
+  const indexPos      = 0;
+  const indexName     = 1;
+  const indexImgPath  = 2;
 
-  /*rows.forEach ( row => {
-    const columns = row.split(',');
-    console.log(row);
-  }); */
-  const defaultImg = data.trimEnd().split('\n')[1].split(',')[1];
+  // set the second entry of the csv file to the default image.
+  const defaultImg = data.trimEnd().split('\n')[1].split(',')[indexImgPath];
+
+  // split the data by new line and remove lines 1 and 2.
+  const rows = data.trimEnd().split('\n').slice(2);
 
   for (var i = 0; i < rows.length; i++)
   {
     const columns = rows[i].split(',');   
-    if (columns[1].length == 1) {
-      addPersonElement(defaultImg, columns[0], "center_block");
+
+    // check if the image path has been left blank
+    // if so use the default image
+    if ((columns[indexImgPath] == "\n")
+        || (columns[indexImgPath] == "\r")
+        || (columns[indexImgPath].length = 0)  
+        || (columns[indexImgPath] == "undefined") 
+      ){
+      addPersonElement(defaultImg, columns[indexName], "center_block");
     }
     else {
-      addPersonElement(columns[1], columns[0], "center_block");
+      addPersonElement(columns[indexImgPath].trimStart().trimEnd(), columns[indexName], "center_block");
     }
   }
 } 
 
+
+/*TODO:
+  add rank/positon to the parameters
+  create a rank/position div and assign all akin nodes to this div
+*/
 function addPersonElement(imgpath, title, dst)
 {
   /*

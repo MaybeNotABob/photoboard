@@ -1,12 +1,12 @@
-Name,Image URL
-default,imgs/emotion_unknown.png
-Captain Kirk,imgs/emotion_amazing.png
-Captiain Spock,imgs/emotion_horror.png
-James Dean,imgs/emotion_hypnotized.png
-Jolly Roger,imgs/emotion_injured.png
-Jack Reacher,imgs/emotion_japan.png
-Jim Davies,
-Dennis the Menace,imgs/emotion_jason.png
-Scooby Doo,imgs/emotion_juggler.png
-The Stig,imgs/emotion_kiddy.png
-James Captain Slow May,imgs/emotion_lol.png
+Position,Name,Image URL
+default,image,imgs/emotion_unknown.png
+Captain,Kirk,imgs/emotion_amazing.png
+Captain,Spock,imgs/emotion_horror.png
+Lt,James Dean,imgs/emotion_hypnotized.png
+Pirate,Jolly Roger,imgs/emotion_injured.png
+Dr,Jack Reacher,imgs/emotion_japan.png
+Dr,Jim Davies,
+Lt,Dennis the Menace,imgs/emotion_jason.png
+Dog,Scooby Doo,imgs/emotion_juggler.png
+Driver,The Stig,imgs/emotion_kiddy.png
+Captain,James Captain Slow May,imgs/emotion_lol.png
