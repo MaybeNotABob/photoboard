@@ -14,6 +14,14 @@
 
 */
 
+window.addEventListener("load", init);
+
+function init()
+{
+	console.log("Init");
+	fetchCSVData();
+}
+
 async function fetchCSVData() {
   // attempt to receive the csv file from the remote path
   const response = await fetch('csv/test.csv');
@@ -32,7 +40,17 @@ async function fetchCSVData() {
   for (let i = 0; i < rows.length; i++)
   {
     const columns = rows[i].split(',');
-    console.log(columns[1]);
-
+    addPersonElement(columns[1], columns[0], "center_block");
   }
 } 
+
+function addPersonElement(imgpath, title, dst)
+{
+  const newDiv = document.createElement("div");
+  const imgofPerson = document.createElement("IMG");
+  imgofPerson.src = imgpath;
+  const titleofPerson = document.createTextNode(title);
+  newDiv.appendChild(imgofPerson)
+  newDiv.appendChild(titleofPerson)
+  document.getElementById(dst).appendChild(newDiv);
+}

@@ -26,27 +26,33 @@
 
 .left_pad {
   grid-area: left_pad;
+  background-color: #FFFFFF;
 }
 
 .left_block {
   grid-area: left_block;
+  background-color: #DD5555;
 }
 
 .center_block {
   grid-area: center_block;
   display: grid;
+  background-color: #FF990F;
 }
 
 .right_block {
   grid-area: right_block;
+  background-color: #33F411;
 }
 
 .right_pad {
   grid-area: right_pad;
+  background-color: #FFFFFF;
 }
 
 .footer_block {
   grid-area: footer_block;
+  background-color: #222244;
 }
 
 @media screen and (min-width: 1601px) {
@@ -66,9 +72,9 @@
     height: auto;
     display: grid;
     grid-column-gap: 0%;
-    grid-template-areas:  "header_block   header_block    header_block    header_block    header_block"
-                          "left_pad       left_block      center_block    right_block     right_pad"
-                          "footer_block   footer_block    footer_block    footer_block    footer_block";
+    grid-template-areas:  "header_block    header_block    header_block"
+                          "left_block      center_block    right_block"
+                          "footer_block    footer_block    footer_block";
     background-color: #0000FF;
   }
 }
