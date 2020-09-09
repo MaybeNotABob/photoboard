@@ -23,6 +23,7 @@
 .person_block {
   background-color: steelblue;
   text-align: center;
+  display: inline-block;
 }
 .person_block_caption {
   background-color: rgb(43, 0, 100);
@@ -46,7 +47,6 @@
 
 .center_block {
   grid-area: center_block;
-  display: grid;
   background-color: #FF990F;
 }
 

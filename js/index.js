@@ -54,10 +54,14 @@ async function fetchCSVData() {
         || (columns[indexImgPath].length = 0)  
         || (columns[indexImgPath] == "undefined") 
       ){
-      addPersonElement(defaultImg, columns[indexName], "center_block");
+      addPersonElement(defaultImg, 
+                      columns[indexPos].trimStart().trimEnd(),
+                      columns[indexName]);
     }
     else {
-      addPersonElement(columns[indexImgPath].trimStart().trimEnd(), columns[indexName], "center_block");
+      addPersonElement(columns[indexImgPath].trimStart().trimEnd(),
+                       columns[indexPos].trimStart().trimEnd(),
+                       columns[indexName]); 
     }
   }
 } 
@@ -67,7 +71,7 @@ async function fetchCSVData() {
   add rank/positon to the parameters
   create a rank/position div and assign all akin nodes to this div
 */
-function addPersonElement(imgpath, title, dst)
+function addPersonElement(imgpath, personPos, personName)
 {
   /*
   <div id="person_block" class="person_block"> 
@@ -77,6 +81,15 @@ function addPersonElement(imgpath, title, dst)
       </div> 
   </div> 
   */
+  //var elem = document.getElementById("center_block");
+
+  var parentElem = document.getElementById(personPos);
+  if (null == parentElem) {
+    parentElem = document.createElement("div");
+    parentElem.id = personPos;
+    parentElem.className  = personPos;
+  }
+
   const aDiv = document.createElement("div");
   aDiv.id = "person_block";
   aDiv.className  = "person_block";
@@ -87,8 +100,11 @@ function addPersonElement(imgpath, title, dst)
   const bDiv = document.createElement("div");
   bDiv.id = "person_block_caption";
   bDiv.className  = "person_block_caption";
-  const titleofPerson = document.createTextNode(title);
+  const titleofPerson = document.createTextNode(personPos + " " + personName);
+
   bDiv.appendChild(titleofPerson);
   aDiv.appendChild(bDiv);
-  document.getElementById(dst).appendChild(aDiv);   
+  parentElem.appendChild(aDiv);
+
+  document.getElementById("center_block").insertAdjacentElement("afterbegin", parentElem);
 }
