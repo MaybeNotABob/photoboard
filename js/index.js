@@ -46,11 +46,26 @@ async function fetchCSVData() {
 
 function addPersonElement(imgpath, title, dst)
 {
-  const newDiv = document.createElement("div");
+  /*
+  <div id="person_block" class="person_block"> 
+    <img src="/img/n.....">
+      <div id="person_block_caption" class="person_block_caption"> 
+        title of person
+      </div> 
+  </div> 
+  */
+  const aDiv = document.createElement("div");
+  aDiv.id = "person_block";
+  aDiv.className  = "person_block";
   const imgofPerson = document.createElement("IMG");
   imgofPerson.src = imgpath;
+  aDiv.appendChild(imgofPerson)
+
+  const bDiv = document.createElement("div");
+  bDiv.id = "person_block_caption";
+  bDiv.className  = "person_block_caption";
   const titleofPerson = document.createTextNode(title);
-  newDiv.appendChild(imgofPerson)
-  newDiv.appendChild(titleofPerson)
-  document.getElementById(dst).appendChild(newDiv);
+  bDiv.appendChild(titleofPerson);
+  aDiv.appendChild(bDiv);
+  document.getElementById(dst).appendChild(aDiv);   
 }

@@ -20,6 +20,16 @@
   height: 100%;
 }
 
+.person_block {
+  background-color: steelblue;
+  text-align: center;
+}
+.person_block_caption {
+  background-color: rgb(43, 0, 100);
+  color: #FFFFFF;
+  text-align: center;
+}
+
 .header_block {
   grid-area: header_block;
 }
