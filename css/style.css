@@ -33,63 +33,78 @@ body {
 }
 
 .person_block {
-  background-color: steelblue;
+  display: inline-block;
   text-align: center;
   padding: 10px;
-  display: inline-block;
+  column-gap: 2px;
+  row-gap: 2px;
+  /* background-color: #c4cce2 */
 }
 
 .person_block_caption {
-  background-color: rgb(43, 0, 100);
+  display: block;
+  background-color: #2f819e;
   color: #FFFFFF;
   text-align: center;
 }
 
 .header_block {
-  grid-area: header_block;
-  background-color: #9955FF;
   display: block;
+  grid-area: header_block;
+  background-color: #91b8c7;
+}
+
+.company_logo {
+  display: block;
+  text-align: left;
+  padding: 10px;
+}
+
+.company_name {
+  display: inline-block;
+  text-align: left;
+  padding-left: 6px;
 }
 
 .left_pad {
-  grid-area: left_pad;
-  background-color: #FFFFFF;
   display: block;
+  grid-area: left_pad;
+  /*background-color: #FFFFFF;*/
 }
 
 .left_block {
-  grid-area: left_block;
-  background-color: #DD5555;
-  align-content: center;
   display: block;
+  grid-area: left_block;
+ /* background-color: #DD5555;*/
+  align-content: center;
 }
 
 .center_block {
+  display: block;
   grid-area: center_block;
-  background-color: #FF990F;
+ /* background-color: #FF990F; */
   text-align: center;
   align-content: center;
-  display: block;
-
 }
 
 .right_block {
-  grid-area: right_block;
-  background-color: #33F411;
-  align-content: center;
   display: block;
+  grid-area: right_block;
+ /* background-color: #33F411; */
+  align-content: center;
 }
 
 .right_pad {
-  grid-area: right_pad;
-  background-color: #FFFFFF;
   display: block;
+  grid-area: right_pad;
+ /* background-color: #FFFFFF; */
 }
 
 .footer_block {
-  grid-area: footer_block;
-  background-color: #222244;
   display: block;
+  grid-area: footer_block;
+  background-color: #91b8c7;
+  font-size: smaller;
 }
 
 
@@ -98,7 +113,7 @@ body {
     grid-template-areas:  "header_block   header_block    header_block    header_block    header_block"
                           "left_pad       left_block      center_block    right_block     right_pad"
                           "footer_block   footer_block    footer_block    footer_block    footer_block";
-    background-color: #FF00FF;
+   /* background-color: #FF00FF; */
   }
 }
 
@@ -107,7 +122,7 @@ body {
     grid-template-areas:  "header_block    header_block    header_block"
                           "left_block      center_block    right_block"
                           "footer_block    footer_block    footer_block";
-    background-color: #055550FF;
+  /*  background-color: #055550FF; */
   }
 
   .left_pad {
