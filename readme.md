@@ -34,9 +34,7 @@ __Row 2__ contains the default image URL/Path in the event row 3 through n are u
 __FatCow Icons__  
 ../imgs/  
 The emoji icons/images are licensed under the Creative Commons Attribution 3.0 (CC BY 3.0 US) and provided by fatcow.com/free-icons.  
-
 &nbsp;  
-
 __Papa Parse__  
 ../jsv/papaparse.min.js  
 Is provided by (Matt Holt) papaparse.com && github.com/mholt/PapaParse and licensed under MIT License.  
