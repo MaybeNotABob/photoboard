@@ -18,74 +18,65 @@ window.addEventListener("load", init);
 
 function init()
 {
-	console.log("Init");
 	fetchCSVData();
 }
 
-async function fetchCSVData() {
-  // attempt to receive the csv file from the remote path
-  const response = await fetch('csv/test.csv');
-  // save the response of the request to a variable
-  const data = await response.text();
-  // trim any leading white space, 
-  // then split the response into seperate lines (line break)  
-  // remove row headers from data.
-  // ---- CSV file format ----
-  // #1 row headers   :: Position, Name, Image Path (URL)
-  // #2 default image :: default, image, http://default-image.jpg
-  const indexPos      = 0;
-  const indexName     = 1;
-  const indexImgPath  = 2;
+function fetchCSVData() {
+// ---- CSV file format ----
+// row 1 (header):  Position, Name, Image Path (URL)
+// row 2 (default): default, image, http://default-image.jpg
+// row 3 - n:       Manager, Joe Bloggs, https://some-img.png
 
-  // set the second entry of the csv file to the default image.
-  const defaultImg = data.trimEnd().split('\n')[1].split(',')[indexImgPath];
-
-  // split the data by new line and remove lines 1 and 2.
-  const rows = data.trimEnd().split('\n').slice(2);
-
-  for (var i = 0; i < rows.length; i++)
-  {
-    const columns = rows[i].split(',');   
-
-    // check if the image path has been left blank
-    // if so use the default image
-    if ((columns[indexImgPath] == "\n")
-        || (columns[indexImgPath] == "\r")
-        || (columns[indexImgPath].length = 0)  
-        || (columns[indexImgPath] == "undefined") 
-      ){
-      addPersonElement(defaultImg, 
-                      columns[indexPos].trimStart().trimEnd(),
-                      columns[indexName]);
+  Papa.parse("../csv/test.csv", {
+    download: true,
+    delimiter: ",",	
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+      processCSVData(results);   
     }
-    else {
-      addPersonElement(columns[indexImgPath].trimStart().trimEnd(),
-                       columns[indexPos].trimStart().trimEnd(),
-                       columns[indexName]); 
+  });
+}
+
+function processCSVData(results) {
+  results.data.forEach((element, index) => {
+    // skip over the default image entry
+    // index is 0 as the header is omitted
+    if (index == 0) return;
+    if (element["Image URL"] == "\n"
+        || (element["Image URL"] == "\r")
+        || (element["Image URL"].length == 0)  
+        || (element["Image URL"] == "undefined"))
+    {
+      addPersonElement(results.data[0]["Image URL"], element["Position"], element["Name"]);
     }
-  }
-} 
+    else 
+    {
+      addPersonElement(element["Image URL"], element["Position"], element["Name"]);
+    }
+  });
+}
 
-
-//refactoring needed / tidy up variable names
 function addPersonElement(imgpath, personPos, personName)
 {
-  /*
-    <div id="position" class="position">
-      <div id="person_block" class="person_block">
-      <img src="imagePath>
-        <div id="person_block_caption" class="person_block_caption">
-        Person's Name
-        </div>
-      </div>
-    </div>
-  */
+  
+ //   <div id="position" class="position">
+ //     <div id="person_block" class="person_block">
+ //     <img src="imagePath>
+ //       <div id="person_block_caption" class="person_block_caption">
+ //       Person's Name
+ //       </div>
+ //     </div>
+ //   </div>
 
-  var parentElem = document.getElementById(personPos);
+  // whitespace removed from the position.
+  const wsrPersonPos = personPos.replace(/\s+/g, "");
+  
+  var parentElem = document.getElementById(wsrPersonPos);
   if (null == parentElem) {
     parentElem = document.createElement("div");
-    parentElem.id = personPos.replace(/\s+/g, "");;
-    parentElem.className  = personPos.replace(/\s+/g, "");
+    parentElem.id = wsrPersonPos
+    parentElem.className  = wsrPersonPos;
   }
 
   const aDiv = document.createElement("div");

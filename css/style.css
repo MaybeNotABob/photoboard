@@ -20,7 +20,6 @@ body {
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  /*max-width: 800px;*/
 }
 
 .container {
@@ -29,7 +28,9 @@ body {
   height: 100%;
   text-align: center;
   align-content: center;
-  grid-column-gap: 0%;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .person_block {
@@ -38,7 +39,6 @@ body {
   padding: 10px;
   column-gap: 2px;
   row-gap: 2px;
-  /* background-color: #c4cce2 */
 }
 
 .person_block_caption {
@@ -66,38 +66,40 @@ body {
   padding-left: 6px;
 }
 
+.center_block {
+  display: block;
+  grid-area: center_block;
+  text-align: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  /*
+  restrict the div width to limit number
+  of items per row
+  */
+  max-width: 800px;
+}
+
 .left_pad {
   display: block;
   grid-area: left_pad;
-  /*background-color: #FFFFFF;*/
 }
 
 .left_block {
   display: block;
   grid-area: left_block;
- /* background-color: #DD5555;*/
-  align-content: center;
-}
-
-.center_block {
-  display: block;
-  grid-area: center_block;
- /* background-color: #FF990F; */
-  text-align: center;
   align-content: center;
 }
 
 .right_block {
   display: block;
   grid-area: right_block;
- /* background-color: #33F411; */
   align-content: center;
 }
 
 .right_pad {
   display: block;
   grid-area: right_pad;
- /* background-color: #FFFFFF; */
 }
 
 .footer_block {
@@ -113,7 +115,6 @@ body {
     grid-template-areas:  "header_block   header_block    header_block    header_block    header_block"
                           "left_pad       left_block      center_block    right_block     right_pad"
                           "footer_block   footer_block    footer_block    footer_block    footer_block";
-   /* background-color: #FF00FF; */
   }
 }
 
@@ -122,7 +123,6 @@ body {
     grid-template-areas:  "header_block    header_block    header_block"
                           "left_block      center_block    right_block"
                           "footer_block    footer_block    footer_block";
-  /*  background-color: #055550FF; */
   }
 
   .left_pad {
